@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  db:
+    image: ${DATABASE_NAME} # docker image of postgres 
+    restart: always
+    ports:
+      - '${DATABASE_PORT}:${DATABASE_PORT}'
+    environment:
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+  test-db:
+    image: ${DATABASE_NAME}
+    restart: always
+    ports:
+      - '${DATABASE_PORT}:${DATABASE_PORT}'
+    environment:
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
