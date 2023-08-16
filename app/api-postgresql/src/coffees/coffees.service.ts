@@ -20,6 +20,7 @@ export class CoffeesService {
     private readonly connection: Connection,
   ) {}
 
+  // Query parameters
   findAll(paginationQuery: PaginationQueryDto) {
     const { limit, offset } = paginationQuery;
     return this.coffeeRepository.find({
