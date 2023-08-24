@@ -1,10 +1,12 @@
-import { Module } from '@nestjs/common';
+import { Module, ValidationPipe } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { APP_PIPE } from '@nestjs/core';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from 'src/app.controller';
 import { AppService } from 'src/app.service';
 import { CoffeeRatingModule } from 'src/coffee-rating/coffee-rating.module';
 import { CoffeesModule } from 'src/coffees/coffees.module';
+import { CommonModule } from './common/common.module';
 
 @Module({
   imports: [
@@ -22,8 +24,16 @@ import { CoffeesModule } from 'src/coffees/coffees.module';
     }),
     CoffeesModule,
     CoffeeRatingModule,
+    CommonModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    // Below is the example to implement pipes globally to all of our application endpoints
+    // {
+    //   provide: APP_PIPE,
+    //   useValue: ValidationPipe,
+    // },
+  ],
 })
 export class AppModule {}

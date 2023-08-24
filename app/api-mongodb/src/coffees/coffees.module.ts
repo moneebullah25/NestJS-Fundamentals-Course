@@ -20,5 +20,9 @@ import { EventSchema } from 'src/events/enities/event.entity';
   ],
   controllers: [CoffeesController],
   providers: [CoffeesService],
+  // useValue syntax is useful for injecting a constant value
+  // class MockService {}
+  // providers: [{provide: CoffeeService, useValue: new MockService()}]
+
 })
 export class CoffeesModule {}

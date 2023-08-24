@@ -24,7 +24,6 @@ async function bootstrap() {
     new TimeoutInterceptor(),
   );
   app.useGlobalFilters(new HttpExceptionFilter());
-  app.useGlobalGuards(new ApiKeyGuard());
 
   const options = new DocumentBuilder()
     .setTitle('ILoveCoffee')
